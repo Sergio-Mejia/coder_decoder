@@ -5,10 +5,12 @@ import fs from 'fs';
 export class Coder {
     constructor() { }
 
-    static execute(inputFile, outputFile, codec) {
+    static execute(inputFile, outputFile, codec, channels, sampleRate) {
         Coder.ensureDirectoryExistence(outputFile)
         ffmpeg(inputFile)
             .audioCodec(codec)
+            .audioChannels(channels[0])
+            .audioFilters(`aformat=sample_fmts=s16:channel_layouts=${channels[1]},aresample=${sampleRate}`)
             .on('end', () => {
                 console.log(`Codificación completa: ${outputFile}`);
             })
