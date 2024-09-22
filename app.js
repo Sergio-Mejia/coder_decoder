@@ -47,18 +47,32 @@ function main() {
   //     Coder.executeDecoder(file, outputFile);
   // })
 
-  const inputVideo = path.resolve("./original.mp4");
-  const outputFile = path.resolve("./videoEncoded/32bits/output.mkv");
 
+  //* Codificar Video
+  // const inputVideo = path.resolve("./original.mp4");
+  // const outputFile = path.resolve("./videoEncoded/32bits/output.mkv");
+  
   // console.log({inputVideo});
-  Coder.executeCoderVideo({
-    inputVideo,
-    outputFile,
-    // codec: "libx264", //* 8 bits
-    // codec: "ffv1", //* 16 bits
-    codec: "png", //* 32 bits
+  // Coder.executeCoderVideo({
+  //   inputVideo,
+  //   outputFile,
+  //   // codec: "libx264", //* 8 bits
+  //   // codec: "ffv1", //* 16 bits
+  //   codec: "png", //* 32 bits
+  // });
+  
+  
+  // Coder.getFrameRate(outputFile);
+  
+  //* Decodificar video
+
+  const inputVideo = path.resolve("./videoEncoded/32bits/output.mkv");
+  const outputVideo = path.resolve("./videoDecoded/decoded_32_to_16bits.yuv");
+
+  Coder.executeDecoderVideo({
+    inputFile: inputVideo,
+    outputFile: outputVideo,
+    bitDepth: 16,
+    colorSpace: 'rgb'
   });
-
-
-  Coder.getFrameRate(outputFile);
 }
