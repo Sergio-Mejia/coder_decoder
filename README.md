@@ -1,10 +1,15 @@
 ## Formatos para los canales
 
-    * 1 canal: ```mono```
-    * 2 canales : ```stereo```
-    * 6 canales : ```5.1``` surround
+* 1 canal: ```mono```
+* 2 canales : ```stereo```
+* 6 canales : ```5.1``` surround
+* 8 canales : ```7.1```
+
+```ffmpeg -layouts```
 
 ## Opciones de sample_fmts en FFmpeg
+
+````ffmpeg -sample_fmts```
 
 ```s16```: Signed 16-bit PCM.
 - Es uno de los formatos de muestra más comunes para audio de alta calidad en aplicaciones y archivos de audio.
@@ -12,11 +17,8 @@
 ```s32```: Signed 32-bit PCM.
 - Ofrece una mayor precisión en la representación del audio, pero también produce archivos más grandes.
 
-```s8```: Signed 8-bit PCM.
-- Generalmente usado en aplicaciones que requieren menos precisión y tamaño de archivo reducido.
-
 ```u8```: Unsigned 8-bit PCM.
-- Similar a s8, pero usa valores sin signo.
+- Generalmente usado en aplicaciones que requieren menos precisión y tamaño de archivo reducido y usa valores sin signo.
 
 ```flt```: 32-bit floating-point PCM.
 - Proporciona una alta calidad de audio con una mayor precisión en la representación de las señales de audio.
@@ -38,3 +40,5 @@
 
 ```pcm_s32le```: Signed 32-bit PCM (little-endian).
 - Similar a s32, pero especifica el formato de endianidad de los datos.
+
+
